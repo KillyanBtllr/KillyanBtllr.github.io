@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>CV Batailler Killyan</title>
+	<link rel="icon" href="Images/photo.jpg"/>
+	<link type="text/css" href="Style.css" rel="stylesheet">
+</head>
+<body>
+	<main class="grid-container">							<!--balise de la grid-->
+		<div class="grid-item photo left">					<!--balise de la case photo-->
+			<img src="Images/photo.jpg" alt="Photo CV" draggable="false"/>		<!--balise pour la photo-->
+		</div>
+		<div class="grid-item nom right">							<!--balise de la case nom-->			
+			<h1>BATAILLER<br>Killyan</h1>						<!--balise titre qui contient le nom-->
+			<h2>19 ANS<br>ETUDIANT</h2>						<!--balise de sous-titre qui contient le statut-->
+		</div>
+		<address class="grid-item contact left">			<!--balise de la case contact-->
+			<span class="title left">CONTACT</span>			<!--balise qui contient le titre de la case-->
+			<ul>
+				<li>										<!--chaque li a une image et un lien-->
+					<img src="Images/Telephone.png" alt="Téléphone" draggable="false"/>
+					<a href="tel:+33623693273" draggable="false">06 23 69 32 73</a>
+				</li>
+				<li>
+					<img src="Images/Adresse.png" alt="Adresse" draggable="false"/>
+					<a href="https://www.google.fr/maps/place/82+Rue+du+1er+Mars+1943,+69100+Villeurbanne" target="_blank" draggable="false">19 Rue Marcel Dutartre, 69100 Villeurbanne</a>
+				</li>
+				<li>
+					<img src="Images/Mail.png" alt="Mail" draggable="false"/>
+					<a href="mailto:batailler.killyan@gmail.com" draggable="false">batailler.killyan@gmail.com</a>
+				</li>
+			</ul>
+		</address>
+		<article class="grid-item objectif right">			<!--balise de la case objectif-->
+			<h2 class="title right">PROFIL</h2>
+			<p>Etudiant de première année en BUT informatique, je suis passionné par ce domaine et cherche a progresser en permanance.
+				Rigoureux et sérieux, je saurais répondre à vos attentes. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas nostrum architecto</p>
+		</article>
+		<article class="grid-item langue left">				<!--balise de la case langue-->
+			<h2 class="title left">LANGUES</h2>
+			<ul>											<!--balise qui contient toutes les langues-->
+				<li class="francais">						<!--balise qui contient une des trois langues-->
+					<span>FRANCAIS<br>Langue maternelle</span>
+					<div class="circle" data-content="100%"></div>
+				</li>
+				<li class="anglais">						<!--se répète pour chaque langue-->
+					<span>ANGLAIS<br>Niveau professionnel</span>
+					<div class="circle" data-content="60%"></div>
+				</li>
+				<li>
+					<span>ITALIEN<br>Base linguistique</span>
+					<div class="circle" data-content="30%"></div>
+				</li>
+			</ul>
+		</article>
+		<article class="grid-item formation right">			<!--balise de la case formation-->
+			<h2 class="title right">FORMATION</h2>
+			<ul>
+				<li class="nom-formation">					<!--le span est dans le li car il faut que je le déplace avec du flex-->
+					BUT en Informatique
+					<span>2021-2022</span>
+				</li>
+				<li>IUT Lyon 1 - Villeurbanne</li>
+				<hr>										<!--balise de la barre de séparation-->
+				<li class="nom-formation">
+					BAC Technologique - Spécialité STI2D
+					<span>2017-2021</span>
+				</li>
+				<li>Lycée l'Oiselet - Bourgoin-Jallieu</li>
+			</ul>
+		</article>
+		<article class="grid-item competence left">			<!--balise de la case competence-->
+			<h2 class="title left">COMPETENCES</h2>
+			<ul>
+				<li>
+					<div class="titre-competence">			<!--une div pour le titre de la compétence (logo + nom + progress)-->
+						<div class="nom-competence">		<!--une div pour le nom (logo + nom)-->
+							<img src="Images/Python.png" alt="Python" draggable="false"/>
+							<h3>Python</h3>
+						</div>
+						<progress max="100" value="40"></progress>		<!--balise de la barre de progression-->
+					</div>									<!--j'ai fait comme ça car je doit faire du flex entre chacun de ces éléments-->
+					<p>Langage utilisé pour des projets de lycée ainsi que pour des cours d'algorithmie</p>
+				</li>
+				<li>										<!--se répète pour chaque compétence-->
+					<div class="titre-competence">
+						<div class="nom-competence">
+							<img src="Images/CSS.png" alt="CSS" draggable="false"/>
+							<h3>CSS</h3>
+						</div>
+						<progress max="100" value="60"></progress>
+					</div>
+					<p>Langage utilisé dans des projets de BUT de type SAE et lors de quelques projet personnels.</p>
+				</li>
+				<li>
+					<div class="titre-competence">
+						<div class="nom-competence">
+							<img src="Images/HTML.png" alt="HTML" draggable="false"/>
+							<h3>HTML</h3>
+						</div>
+						<progress max="100" value="80"></progress>
+					</div>
+					<p>Langage utilisé dans des projets de BUT de type SAE et lors de quelques projet personnels.</p>
+				</li>
+			</ul>
+		</article>
+		<article class="grid-item experience right">		<!--balise de la case experience-->
+			<h2 class="title right">EXPERIENCES</h2>
+			<ul>
+				<li class="nom-experience">					<!--le span est dans le li car il faut que je le déplace avec du flex-->
+					Ouvrier d'exécution - Job étudiant
+					<span>2 Mois : Juil. 2020 et Juil. 2021</span>
+				</li>
+				<li>ECC SERVICE - Diémoz
+
+				</li>
+				<hr>										<!--balise de la barre de séparation-->
+				<li class="nom-experience">
+					Stage : Assistant Technicien Informatique
+					<span>1 Semaine - Stage de 3e</span>
+				</li>
+				<li>Bâtiment Public - Villefontaine</li>
+			</ul>
+		</article>
+		<article class="grid-item loisir right">			<!--balise de la case loisir-->
+			<h2 class="title right">LOISIRS</h2>
+			<ul>
+				<li>										<!--chaque li a une image et un titre-->
+					<img src="Images/Cinema.png" alt="Cinéma" class="cinema" draggable="false"/>
+					<h3>Cinéma</h3>
+				</li>
+				<li>
+					<img src="Images/Code.png" alt="Code" draggable="false"/>
+					<h3>Code</h3>
+				</li>
+				<li>
+					<img src="Images/Videogame.png" alt="Jeux Vidéo" draggable="false"/>
+					<h3>Jeux Vidéo</h3>
+				</li>
+			</ul>
+		</article>
+	</main>
+</body>
+</html>

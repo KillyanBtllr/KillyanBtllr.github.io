@@ -1,0 +1,471 @@
+/***********************************Importation d'une police Google***********************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@300&display=swap');
+
+/***************************************Création des variables****************************************/
+
+:root {
+	--body: #313031;						  		  /*background du gris foncé du body*/
+	--back-1: #E5E5E5;						  		  /*background blanc*/
+	--back-2: #091C3A;						  		  /*background bleu foncé*/
+	--back-3: #DAD8D9;					   	  		  /*background gris clair*/
+	--back-4: #0C2349;						  		  /*background bleu*/
+	--back-5: #E3E0E0;						 		  /*background blanc crème*/
+	--text-1: #FFFFFF;						  		  /*couleur de texte blanc*/
+	--text-2: #7A7A7A;						  	  	  /*couleur de texte gris*/
+	--text-3: #4B4B4B;						  		  /*couleur de texte gris foncé*/
+	--text-4: #000000;						  		  /*couleur de texte noir*/
+	--tiers: #0575F8;						  		  /*couleur pour la barre de progression*/
+	--size-title: 58px;									/*taille des titres*/
+	user-select: none;									/*pas de sélection pour faire un effet pdf*/
+}
+
+/****************************************Perso de la scrollbar****************************************/
+
+::-webkit-scrollbar {
+	width: 15px;										/*largeur de la scrollbar entière*/
+}
+
+::-webkit-scrollbar-thumb {								/*sélectionne seulement la partie dynamique de la scrollbar*/
+	background: #222222;
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {						/*sélectionne le hover de la partie dynamique*/
+	background: #141414;
+}
+
+/*******************************************Perso du body*********************************************/
+
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;							/*flex pour placer ma page au centre*/
+	background-color: var(--body);
+	font-family: 'Noto Sans Display', sans-serif;		/*je place la police dans le body pour qu'elle s'applique à tous les enfants*/
+}
+
+/*******************************************Perso des liens*******************************************/
+
+a {
+	color: inherit;
+	text-decoration: none;
+	margin-left: 10px;
+}
+
+/***********************************Perso de la barre de séparation***********************************/
+
+hr {
+	margin: 0;
+	margin-right: 40px;
+	height: 1.3px;
+	border: 0;
+	background-image: linear-gradient(to right, transparent, var(--text-4), transparent);
+}					/*linear-gradient donne de gauche à droite du transparent puis du noir puis encore du transparent*/
+
+/*******************************************Perso des listes******************************************/
+
+ul {
+	margin: 0;
+	height: calc(100% - var(--size-title));
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	list-style-type: none;								/*pour enlever tout les éléments de style par défaut de la balise ul (ex: les puces)*/
+}
+
+/******************************Perso de la taille de police dans les li*******************************/
+
+li {
+	font-size: 1.1rem;
+}
+
+/****************************************Perso des paragraphes****************************************/
+
+article > p {											/*sélectionne les cases contenant uniquement un paragraphe*/
+	display: flex;										/*les cases objectif et experience*/
+	align-items: center;								/*flex pour centrer verticalement*/
+	color: var(--text-3);
+	padding: 0px 40px;									/*padding horizontal*/
+	margin: 0;
+	height: calc(100% - var(--size-title));				/*la taille du contenu de la case est égal à la taille de la case moins la taille du titre*/
+	transition: .2s;									/*temps de la transition de l'animation du hover*/
+}
+
+/**********************************Perso du zoom sur les paragraphes**********************************/
+
+article > p:hover {
+	transform: scale(1.03, 1.08);						/*augmente la taille du paragraphe quand le hover est actif*/
+}
+
+/******************************************Perso de la grid*******************************************/
+
+.grid-container {
+	margin: 12vh 0;										/*margin vertical de la page*/
+	height: 180vh;										/*hauteur de la page*/
+	width: 70vw;										/*largeur de la page*/
+	display: grid;
+	grid-template-areas: "photo nom"					/*chaque area représente une case*/
+						 "contact objectif"
+						 "langue formation"
+						 "competence experience"
+						 "competence loisir";
+	grid-template-columns: 2.2fr 3fr;
+	grid-template-rows: 2fr 1.8fr 2.1fr 1.8fr 1.8fr;
+	opacity: 0;											/*pour que la page ne soit pas visible avant l'animation d'ouverture*/
+	animation: opening 1s ease-in-out 500ms 1 forwards; /*active l'animation "opening" définit plus bas*/
+}														/*en 1 secondes avec un délai de 500ms*/
+
+/******************************************Perso des images*******************************************/
+
+.photo img {											/*tous ces sélecteurs servent à régler la taille*/
+	height: 270px;										/*des images de chaque case qui en contient*/
+	width: 270px;
+	border-radius: 50%;
+	border: 2px solid var(--text-1);
+}
+
+.contact img {
+	height: 20px;
+	width: 20px;
+}
+
+.loisir img {
+	height: 80px;
+	width: 80px;
+}
+
+.competence img {
+	height: 40px;
+	width: 40px;
+}
+
+/****************************************Placement de la photo****************************************/
+
+.photo {
+	grid-area: photo;
+	display: flex;										/*flex pour centrer la photo horizontalement et verticalement*/
+	justify-content: center;
+	align-items: center;
+}
+
+/***********************************Perso du contenu de nom*******************************************/
+
+.nom {
+	grid-area: nom;
+	padding-left: 80px;									/*padding left pour décaler le nom et le statut à droite*/
+	display: flex;										/*flex pour les mettre en colonne et les espacer*/
+	flex-direction: column;
+	justify-content: space-evenly;
+	font-family: monospace;
+}
+
+/*****************************************Perso du nom/prenom*****************************************/
+
+.nom h1 {
+	margin: 0;
+	font-size: 4em;
+}
+
+/*******************************************Perso du statut*******************************************/
+
+.nom h2 {
+	margin: 0;
+	color: var(--text-2);
+	font-size: 2.5em;
+	line-height: 40px;									/*modifie la hauteur de ligne du statut*/
+}
+
+/****************************************Attribution des areas****************************************/
+
+.contact {
+	grid-area: contact;
+}
+
+.langue {
+	grid-area: langue;
+}
+
+.competence {
+	grid-area: competence;
+}
+
+.objectif {
+	grid-area: objectif;
+}
+
+.formation {
+	grid-area: formation;
+}
+
+.experience {
+	grid-area: experience;
+}
+
+.loisir {
+	grid-area: loisir;
+}
+
+/******************************************Perso des titres*******************************************/
+
+.title {
+	display: block;										/*pour que le background s'applique sur toute la div et pas que le texte*/
+	margin: 0;
+	box-sizing: border-box;								/*pour que le padding soit compris dans height (évite de faire un calc height moins padding)*/
+	height: var(--size-title);
+	padding: 10px;
+	padding-left: 80px;
+	font-family: monospace;
+	font-style: normal;
+	font-size: 2.5em;
+	font-weight: bold;
+}
+
+/*************************************Perso des titres de gauche**************************************/
+
+.title.left {
+	background-color: var(--back-1);
+	color: var(--back-2);
+}
+
+/*************************************Perso des titres de droite**************************************/
+
+.title.right {
+	background-color: var(--back-3);
+	color: var(--back-2);
+}
+
+/**************************************Perso des cases de gauche**************************************/
+
+.left {
+	background-color: var(--back-2);
+	color: var(--text-1);
+}
+
+/**************************************Perso des cases de droite**************************************/
+
+.right {
+	background-color: var(--back-1);
+}
+
+/**************************Afin que les images soient alignées avec le texte**************************/
+
+.contact li, .nom-competence {
+	display: flex;
+	align-items: center;
+}
+
+/**************************************Perso des li de formation**************************************/
+
+.formation li {
+	font-size: 1rem;
+}
+
+/******************************Perso des li avec le nom de la formation*******************************/
+
+.nom-formation {										/*sélectionne à la fois le nom et la période de la formation*/
+	display: flex;										/*flex pour que les périodes soient aligné*/
+	justify-content: space-between;						/*between pour coller les périodes à droites*/
+	align-items: center;
+	margin-right: 40px;									/*laisse de la place à droite pour que les périodes ne soit pas coller à la fin de la page*/
+	font-weight: 600;
+}
+
+/*******************************Perso des laps de temps de la formation*******************************/
+
+.formation li span {
+	width: 100px;										/*pour qu'ils aient la même largeur peu importe le contenu*/
+	padding: 5px;
+	border-radius: 2px;
+	background-color: var(--back-2);
+	color: var(--text-1);
+	text-align: center;
+	font-weight: normal;
+}
+
+/********************************Création des progress bar circulaire*********************************/
+
+.langue li {
+	display: flex;
+	justify-content: space-between;						/*between pour plaquer les langues à gauche et les cercles à droite*/
+	align-items: center;								/*pour aligner horizontalement les langues et les cercles*/
+}
+
+.circle {												/*sélectionne tous les cercles qui sont en fait des carrés ¯\_(ツ)_/¯ */
+	box-sizing: border-box;
+	height: 5rem;
+	width: 5rem;
+	margin: 10px 30px 0 0;
+	position: relative;									/*on passe les cercles en position relative pour que la valeur puisse s'y accrocher*/
+	text-align: center;
+	border-radius: 50%;									/*transforme les carrés en cercles*/
+	border: 0.6rem solid var(--tiers);					/*setup des border pour réaliser une progress bar en cercle de 30%*/
+	border-bottom-color: transparent;
+	border-top-color: var(--back-3);
+	border-right-color: var(--back-3);
+}
+
+.anglais .circle {										/*setup des border pour réaliser une progress bar en cercle de 60%*/
+	border-top-color: var(--tiers);
+}
+
+.francais .circle {										/*setup des border pour réaliser une progress bar en cercle de 100%*/
+	border-top-color: var(--tiers);
+	border-right-color: var(--tiers);
+}
+
+.circle::after {
+	content: attr(data-content);						/*pour récupérer la valeur du cercle*/
+	position: absolute;									/*pour que le pseudo élément s'accroche au cercle*/
+	left: 0;											/*pour placer les valeurs au centre des cercles*/
+	right: 0;
+	top: 15px;
+}
+
+/****************************************Perso des compétences****************************************/
+
+.titre-competence {										/*sélectionne (logo + nom) et progress bar*/
+	display: flex;
+	justify-content: space-between;						/*pour plaquer à gauche logo + nom et à droite la progress bar*/
+	align-items: center;								/*aligne horizontalement tous les éléments*/
+	margin-right: 50px;									/*pour que la progress bar ne soit pas collé à la fin de la case*/
+}
+
+.competence h3 {										/*sélectionne le nom de la compétence*/
+	margin: 0 0 0 10px;									/*margin gauche de 10px et toutes les autres à zéro pour enlever celles par défaut de h3*/
+}
+
+.competence p {
+	margin-right: 15px;									/*pour ne pas collé le texte à la fin de la case*/
+}
+
+progress {
+	width: 125px;										/*pour régler la largeur des progress bar*/
+}
+
+/******************************Perso des li avec le nom de l'experience'*******************************/
+
+.nom-experience {										/*sélectionne à la fois le nom et la période de la formation*/
+	display: flex;										/*flex pour que les périodes soient aligné*/
+	justify-content: space-between;						/*between pour coller les périodes à droites*/
+	align-items: center;
+	margin-right: 40px;									/*laisse de la place à droite pour que les périodes ne soit pas coller à la fin de la page*/
+	font-weight: 600;
+}
+
+/*******************************Perso des laps de temps de l'experience'*******************************/
+
+.experience li span {
+	width: 300px;										/*pour qu'ils aient la même largeur peu importe le contenu*/
+	padding: 5px;
+	border-radius: 2px;
+	background-color: var(--back-2);
+	color: var(--text-1);
+	text-align: center;
+	font-weight: normal;
+}
+
+/******************************************Perso des loisirs******************************************/
+
+.loisir ul {
+	padding: 0;
+	display: flex;
+	flex-direction: row;								/*pour passes la direction de la liste en horizontal*/
+	align-items: center;								/*pour centrer verticalement les loisirs*/
+}
+
+.loisir li {											/*sélectionne chaque loisir*/
+	display: flex;
+	flex-direction: column;								/*pour passer la direction de chaque loisir en vertical*/
+	align-items: center;								/*pour centrer verticalement l'image et le texte*/
+	width: 92px;
+	padding: 15px;
+	border-radius: 15px;
+	background-color: var(--back-5);
+	transition: .2s;									/*temps de la transition de l'animation du hover*/
+}
+
+.loisir li:hover {
+	transform: scale(1.08);								/*augmente la taille du loisir dont le hover est actif*/
+	filter: invert(1);									/*inverse les couleurs de ce loisir*/
+}
+
+.loisir li:hover .cinema {								/*sélectionne l'image cinema du loisir dont le hover actif*/
+	animation: rotating 2.5s linear infinite;			/*active l'animation "rotating" définit plus bas*/
+}														/*en 2.5 secondes avec une vitesse linéaire et à l'infini*/
+                                                		/*pour que l'animation ne s'arrête que quand le hover n'est plus actif*/
+
+.loisir h3 {											/*sélectionne le titre du loisir*/
+	margin: 20px 0 0;									/*margin vertical pour espacer l'image du titre*/
+	text-align: center;
+}
+
+/******************************Perso de la rotation de l'image du cinéma******************************/
+
+@keyframes rotating {									/*crée l'animation personnalisée "rotating"*/
+	to {												/*pas besoin de from car l'animation part de la position initiale de l'objet*/
+		transform: rotate(360deg);						/*fait tourner l'objet sur 360 degrés*/
+	}													/*(jusqu'à ce qu'il revienne à sa position initiale)*/
+}
+
+/**********************************Perso de l'animation d'ouverture**********************************/
+
+@keyframes opening {
+	0% {
+	  transform: translateX(-125px);
+	}
+  
+	100% {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+}
+
+/********************************************Media queries********************************************/
+
+@media (max-width: 1000px) {							/*s'applique quand la largeur de l'écran est inférieur à 1000px*/
+	.grid-container {
+		height: 360vh;
+		width: 60vw;
+		display: grid;
+		grid-template-areas: "photo"					/*change la disposition de la grid afin de la faire sur une seule colonne*/
+							 "nom"
+							 "contact"
+							 "objectif"
+							 "langue"
+							 "formation"
+							 "competence"
+							 "competence"
+							 "experience"
+							 "loisir";
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1.2fr 0.8fr 1fr 1fr 1fr;
+	}
+
+	/******Tous les sélecteurs suivant servent à adapter les couleurs au format une seule colonne******/
+
+	.grid-container .title {
+		background-color: var(--back-3);
+	}
+
+	.loisir {
+		background-color: var(--back-2);
+	}
+
+	.loisir ul {
+		color: var(--text-1);
+	}
+
+	.loisir li {
+		background-color: var(--back-4);
+	}
+
+	.loisir li:hover {
+		filter: invert(0);
+	}
+
+	.loisir img {
+		filter: invert(1);
+	}
+}
